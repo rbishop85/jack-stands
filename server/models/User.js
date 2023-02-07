@@ -17,14 +17,29 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 8,
   },
-  // thoughts: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Thought',
-  //   },
-  // ],
+  photo: {
+    type: String
+  },
+  vehicles: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Vehicle'
+    }
+  ],
+  updates: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Update'
+    }
+  ],
+  partsShelf: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Part'
+    }
+  ],
 });
 
 userSchema.pre('save', async function (next) {
