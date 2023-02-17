@@ -27,6 +27,15 @@ const resolvers = {
     vehicle: async (parent, { _id }) => {
       return Vehicle.findOne({ _id });
     },
+    // Find all updates
+    updates: async () => {
+      return Update.find();
+    },
+    // Find single update by ID
+    update: async (parent, { _id }) => {
+      return Update.findOne({ _id });
+    },
+
   },
 
   Mutation: {
