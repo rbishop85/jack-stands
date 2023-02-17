@@ -52,6 +52,36 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addVehicle(
+      make: String!
+      model: String!
+      year: Int!
+      addedDate: String
+      description: String
+    ): Vehicle
+    editVehicle(
+      _id: ID!
+      make: String
+      model: String
+      year: Int
+      soldDate: String
+      photos: [String]
+      description: String
+    ): Vehicle
+    deleteVehicle(vehicleId: ID!): Vehicle
+    addUpdate(
+      vehicleId: String!
+      postedDate: String
+      photos: [String]
+      description: String
+    ): Update
+    editUpdate(
+      _id: ID!
+      vehicleId: String
+      photos: [String]
+      description: String
+    ): Update
+    deleteUpdate(updateId: ID!): Update
   }
 `;
 
