@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Vehicle, Update } = require('../models');
+const { User, Vehicle, Update, Part } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -34,6 +34,14 @@ const resolvers = {
     // Find single update by ID
     update: async (parent, { _id }) => {
       return Update.findOne({ _id });
+    },
+    // Find all parts
+    parts: async () => {
+      return Part.find();
+    },
+    // Find single part by ID
+    part: async (parent, { _id }) => {
+      return Part.findOne({ _id });
     },
 
   },
@@ -146,6 +154,50 @@ const resolvers = {
         );
 
         return update;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    // addPart - (Create new part)
+    addPart: async (parent, { name, type, description, addedDate, photos, location }, context) => {
+
+      const part = await Part.create({ name, type, description, addedDate, photos, location });
+
+      await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $addToSet: { partsShelf: part._id } }
+      );
+
+      return part;
+    },
+
+    // editPart - (Update an existing part)
+    editPart: async (parent, args, context) => {
+      if (context.user) {
+        return Part.findOneAndUpdate(
+          { _id: args._id, ownerId: context.user.username },
+          args, 
+          { new: true }
+        );
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+
+    // deletePart - (Delete a part and remove it from the owner's list of parts)
+    deletePart: async (parent, { partId }, context) => {
+      if (context.user) {
+        const part = await Part.findOneAndDelete({
+          _id: partId,
+          ownerId: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { partsShelf: partId } }
+        );
+
+        return part;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
