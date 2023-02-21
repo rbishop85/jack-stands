@@ -15,17 +15,22 @@ const resolvers = {
     // If logged in, search current user
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        return User.findOne({ _id: context.user._id })
+        .populate({path: 'vehicles', options: { sort: { addedDate: -1 }}})
+        .populate({path: 'updates', options: { sort: { postedDate: -1 }}})
+        .populate({path: 'partsShelf', options: { sort: { addedDate: -1 }}});
       }
       throw new AuthenticationError('You need to be logged in!');
     },
     // Find all vehicles
     vehicles: async () => {
-      return Vehicle.find();
+      return Vehicle.find()
+      .populate({path: 'updates', options: { sort: { postedDate: -1 }}});
     },
     // Find single vehicle by ID
     vehicle: async (parent, { _id }) => {
-      return Vehicle.findOne({ _id });
+      return Vehicle.findOne({ _id })
+      .populate({path: 'updates', options: { sort: { postedDate: -1 }}});
     },
     // Find all updates
     updates: async () => {
@@ -122,6 +127,12 @@ const resolvers = {
       await User.findOneAndUpdate(
         { _id: context.user._id },
         { $addToSet: { updates: update._id } }
+      );
+
+      await Vehicle.findOneAndUpdate(
+        { _id: vehicleId },
+        { $addToSet: { updates: update._id } }
+
       );
 
       return update;

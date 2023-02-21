@@ -22,26 +22,24 @@ export const QUERY_ME = gql`
         make
         model
         year
-        description
+        addedDate
+        updates {
+          _id
+          description
+        }
       }
       updates {
         _id
         description
+        postedDate
       }
       partsShelf {
         _id
         name
-        description
-        location
         type
+        location
+        addedDate
       }
     }
   }
-  # query me {
-  #   me {
-  #     _id
-  #     username
-  #     email
-  #   }
-  # }
 `;
