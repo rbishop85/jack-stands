@@ -34,7 +34,8 @@ const resolvers = {
     },
     // Find all updates
     updates: async () => {
-      return Update.find();
+      return Update.find()
+      .populate({path: 'vehicle'});
     },
     // Find single update by ID
     update: async (parent, { _id }) => {
@@ -120,9 +121,9 @@ const resolvers = {
     },
 
     // addUpdate - (Create new update)
-    addUpdate: async (parent, { vehicleId, postedDate, photos, description }, context) => {
+    addUpdate: async (parent, { title, description, photos, vehicle }, context) => {
 
-      const update = await Update.create({ ownerId: context.user.username, vehicleId, postedDate, photos, description });
+      const update = await Update.create({ title, description, photos, vehicle, ownerId: context.user.username });
 
       await User.findOneAndUpdate(
         { _id: context.user._id },
@@ -130,9 +131,9 @@ const resolvers = {
       );
 
       await Vehicle.findOneAndUpdate(
-        { _id: vehicleId },
+        // { _id: vehicleId },
+        { _id: vehicle },
         { $addToSet: { updates: update._id } }
-
       );
 
       return update;

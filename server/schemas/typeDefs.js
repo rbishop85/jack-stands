@@ -27,11 +27,12 @@ const typeDefs = gql`
 
   type Update {
     _id: ID
-    ownerId: String
-    vehicleId: String
-    postedDate: String
-    photos: [String]
+    title: String
     description: String
+    photos: [String]
+    vehicle: Vehicle
+    ownerId: String
+    postedDate: String
   }
 
   type Part {
@@ -85,10 +86,10 @@ const typeDefs = gql`
     deleteVehicle(vehicleId: ID!): Vehicle
 
     addUpdate(
-      vehicleId: String!
-      postedDate: String
+      title: String!
+      description: String!
       photos: [String]
-      description: String
+      vehicle: String!
     ): Update
     editUpdate(
       _id: ID!

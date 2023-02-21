@@ -50,21 +50,6 @@ function Profile() {
       )}
     </div>
   );
-
-  // if (user.username) {
-
-
-  //   return (
-  //     <div>
-  //       Viewing {user.username}'s profile.
-  //       Email: {user.email}
-  //     </div>
-  //   );
-  // } else {
-  //   return <Navigate to="/" />
-  // }
-
-
   
 };
 
