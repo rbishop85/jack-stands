@@ -18,6 +18,7 @@ function Profile() {
 
   return (
     <div>
+      - - - - - start profile - - - - -
       {Auth.loggedIn() ? (
         <>
           <div>
@@ -48,6 +49,7 @@ function Profile() {
       ) : (
           <Navigate to="/" />
       )}
+      - - - - - end profile - - - - -
     </div>
   );
   
