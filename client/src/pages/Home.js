@@ -4,8 +4,7 @@ import { useQuery } from '@apollo/client';
 const Home = () => {
 
   return (
-    <main>
-      - - - - - start home - - - - -
+    <main id="home">
       <div className="">
         <div
           className=""
@@ -16,7 +15,6 @@ const Home = () => {
         <div className="">
         </div>
       </div>
-      - - - - - end home - - - - -
     </main>
   );
 };

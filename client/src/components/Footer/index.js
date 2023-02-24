@@ -4,9 +4,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
   return (
-    <footer className="">
-      - - - - - start footer - - - - -
+    <footer className="" id="footer">
       <div className="">
         {location.pathname !== '/' && (
           <button
@@ -16,20 +16,8 @@ const Footer = () => {
             &larr; Go Back
           </button>
         )}
-        <h4>
-          Made with{' '}
-          <span
-            className=""
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
-            ❤️
-          </span>{' '}
-          by the Tech Thoughts team.
-        </h4>
+        jackStands © 2023
       </div>
-      - - - - - end footer - - - - -
     </footer>
   );
 };

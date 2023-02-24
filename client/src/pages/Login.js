@@ -41,8 +41,7 @@ const Login = (props) => {
   };
 
   return (
-    <div>
-      - - - - - start login - - - - -
+    <div id="login">
       {!Auth.loggedIn() ? (
         <>
           <div>
@@ -98,7 +97,6 @@ const Login = (props) => {
       ) : (
         <Navigate to="/" />
       )}
-      - - - - - end login - - - - -
     </div>
   );
 

@@ -9,8 +9,7 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="">
-      - - - - - start header - - - - -
+    <header className="" id="header">
       <div className="">
         <div>
           <Link className="" to="/">
@@ -40,7 +39,6 @@ const Header = () => {
           )}
         </div>
       </div>
-      - - - - - end header - - - - -
     </header>
   );
 };

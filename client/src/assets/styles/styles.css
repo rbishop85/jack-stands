@@ -1,0 +1,36 @@
+#root {
+    /* starting color palette */
+    --col1: #8ecae6;
+    --col2: #219ebc;
+    --col3: #023047;
+    --col4: #ffb703;
+    --col4: #fb8500;
+}
+
+#app {
+
+}
+
+#header {
+    background-color: var(--col2);
+}
+
+#home {
+    background-color: var(--col1);
+}
+
+#login {
+    background-color: var(--col1);
+}
+
+#signup {
+    background-color: var(--col1);
+}
+
+#profile {
+    background-color: var(--col1);
+}
+
+#footer {
+    background-color: var(--col2);
+}

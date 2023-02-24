@@ -39,8 +39,7 @@ const Signup = () => {
   };
 
   return (
-    <main className="">
-       - - - - - start signup - - - - -
+    <main className="" id="signup">
       <div className="">
         <div className="">
           <h4 className="">Sign Up</h4>
@@ -94,7 +93,6 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      - - - - - end startup - - - - -
     </main>
   );
 };
