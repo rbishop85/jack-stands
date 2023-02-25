@@ -7,8 +7,16 @@
     --col4: #fb8500;
 }
 
-#app {
+body {
+    margin: 0;
+}
 
+h1 {
+    margin: 0;
+}
+
+h4 {
+    margin: 0;
 }
 
 #header {

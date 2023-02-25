@@ -17,7 +17,7 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
         .populate({path: 'vehicles', options: { sort: { addedDate: -1 }}})
-        .populate({path: 'updates', options: { sort: { postedDate: -1 }}})
+        .populate({path: 'updates', populate: {path: 'vehicle'}, options: { sort: { postedDate: -1 }}})
         .populate({path: 'partsShelf', options: { sort: { addedDate: -1 }}});
       }
       throw new AuthenticationError('You need to be logged in!');

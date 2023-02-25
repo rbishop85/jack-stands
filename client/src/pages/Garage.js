@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, Navigate, Redirect, useParams } from "react-router-dom";
+import { Navigate, Redirect, useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
-import { Button } from '@mui/material/';
+
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
-function Profile() {
+function Garage() {
   const { loading, data } = useQuery(QUERY_ME);
   const user = data?.me || [];
 
@@ -17,39 +17,14 @@ function Profile() {
   console.log(user);
 
   return (
-    <div id="profile">
+    <div id="garage">
       {Auth.loggedIn() ? (
         <>
           <div>
-            Viewing {user.username}'s profile.
+            Viewing {user.username}'s garage.
           </div>
-          <div>
-            Email: {user.email}
-          </div>
-
-          <Link to="/garage">
-            <Button variant="contained" className="">
-              Garage
-            </Button>
-          </Link>
 
           <div>
-            <br></br>
-            <div>Updates:</div>
-            {user.updates.map(
-              ({ _id, title, description, vehicle, postedDate }) => (
-                <div key={_id}>
-                  <div>----------</div>
-                  <div>Title: {title}</div>
-                  <div>Description: {description}</div>
-                  <div>Vehicle: {vehicle.model}</div>
-                  <div>Posted: {postedDate}</div>
-                </div>
-              )
-            )}
-          </div>
-
-          {/* <div>
             <br></br>
             <div>Garage:</div>
             {user.vehicles.map(
@@ -64,7 +39,7 @@ function Profile() {
                 </div>
               )
             )}
-          </div> */}
+          </div>
 
         </>
       ) : (
@@ -75,4 +50,4 @@ function Profile() {
   
 };
 
-export default Profile;
+export default Garage;

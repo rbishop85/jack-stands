@@ -30,7 +30,12 @@ export const QUERY_ME = gql`
       }
       updates {
         _id
+        title
         description
+        vehicle {
+          _id
+          model
+        }
         postedDate
       }
       partsShelf {
