@@ -19,9 +19,9 @@ h4 {
     margin: 0;
 }
 
-#header {
+/* #header {
     background-color: var(--col2);
-}
+} */
 
 #home {
     background-color: var(--col1);
@@ -36,6 +36,10 @@ h4 {
 }
 
 #profile {
+    background-color: var(--col1);
+}
+
+#garage {
     background-color: var(--col1);
 }
 

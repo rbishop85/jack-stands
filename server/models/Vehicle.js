@@ -13,6 +13,9 @@ const vehicleSchema = new Schema({
   year: {
     type: String,
   },
+  // color: {
+  //   type: String,
+  // },
   addedDate: {
     type: Date,
     default: Date.now,

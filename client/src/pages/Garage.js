@@ -1,8 +1,8 @@
 import React from "react";
-import { Navigate, Redirect, useParams } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
+import { Navigate } from "react-router-dom";
+import { useQuery } from "@apollo/client";
 
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
@@ -31,11 +31,9 @@ function Garage() {
               ({ _id, make, model, year, addedDate, updates }) => (
                 <div key={_id}>
                   <div>----------</div>
-                  <div>Make: {make}</div>
-                  <div>Model: {model}</div>
-                  <div>Year: {year}</div>
+                  <div>{year + ' ' + make + ' ' + model}</div>
                   <div>Added: {addedDate}</div>
-                  <div>Updates: {updates.length}</div>
+                  <div>Total Updates: {updates.length}</div>
                 </div>
               )
             )}

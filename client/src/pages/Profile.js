@@ -1,8 +1,7 @@
 import React from "react";
-import { Link, Navigate, Redirect, useParams } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
-import { Button } from '@mui/material/';
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { Navigate } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
@@ -27,15 +26,9 @@ function Profile() {
             Email: {user.email}
           </div>
 
-          <Link to="/garage">
-            <Button variant="contained" className="">
-              Garage
-            </Button>
-          </Link>
-
           <div>
             <br></br>
-            <div>Updates:</div>
+            <div>Recent Updates:</div>
             {user.updates.map(
               ({ _id, title, description, vehicle, postedDate }) => (
                 <div key={_id}>
