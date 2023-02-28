@@ -1,19 +1,25 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button, Grid, Stack } from '@mui/material';
+
+
 
 const Home = () => {
 
+  const nav = useNavigate();
+  
+  const navButton = (location) => {
+    nav(location);
+  }
+
   return (
     <main id="home">
-      <div className="">
-        <div
-          className=""
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          Something here
-        </div>
-        <div className="">
-        </div>
-      </div>
+      
+      <Stack spacing={2} direction="column" sx={{ margin: 'auto', maxWidth: 150 }}>
+        <Button variant="contained" onClick={() => navButton("/login")}>Login</Button>
+        <Button variant="contained" onClick={() => navButton("/signup")}>Signup</Button>
+      </Stack>
+
     </main>
   );
 };

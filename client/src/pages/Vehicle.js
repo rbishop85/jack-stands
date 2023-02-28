@@ -34,14 +34,15 @@ function Vehicle() {
       </div>
 
       <div>
-        <br></br>
-        <div>Recent Updates:</div>
+        <br />
+        <Typography>Recent Updates:</Typography>
         {vehicle.updates.map(
-          ({ _id, title, description }) => (
+          ({ _id, title, description, postedDate }) => (
             <div key={_id}>
-              <div>----------</div>
-              <div>Title: {title}</div>
-              <div>Description: {description}</div>
+              <Typography>----------</Typography>
+              <Typography>Title: {title}</Typography>
+              <Typography>Description: {description}</Typography>
+              <Typography>Posted: {postedDate}</Typography>
             </div>
           )
         )}

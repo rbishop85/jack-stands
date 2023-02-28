@@ -62,6 +62,7 @@ export const QUERY_VEHICLE = gql`
         _id
         title
         description
+        postedDate
       }
     }
   }

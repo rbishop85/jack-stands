@@ -42,23 +42,6 @@ function Profile() {
             )}
           </div>
 
-          {/* <div>
-            <br></br>
-            <div>Garage:</div>
-            {user.vehicles.map(
-              ({ _id, make, model, year, addedDate, updates }) => (
-                <div key={_id}>
-                  <div>----------</div>
-                  <div>Make: {make}</div>
-                  <div>Model: {model}</div>
-                  <div>Year: {year}</div>
-                  <div>Added: {addedDate}</div>
-                  <div>Updates: {updates.length}</div>
-                </div>
-              )
-            )}
-          </div> */}
-
         </>
       ) : (
           <Navigate to="/" />

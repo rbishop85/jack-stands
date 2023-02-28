@@ -32,6 +32,14 @@ const Header = () => {
     handleCloseNavMenu();
   }
 
+  const titleNav = () => {
+    Auth.loggedIn() ? (
+      nav("/me")
+    ) : (
+      nav("/")
+    )
+  }
+
   // User links
   // #### Page not setup yet ####
   const userEdit = () => {
@@ -54,6 +62,8 @@ const Header = () => {
             variant="h6"
             noWrap
             component="a"
+            href=""
+            onClick={titleNav}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -128,6 +138,8 @@ const Header = () => {
             variant="h5"
             noWrap
             component="a"
+            href=""
+            onClick={titleNav}
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
