@@ -56,7 +56,7 @@ const typeDefs = gql`
     user(username: String!): User
     me: User
     vehicles: [Vehicle]
-    vehicle(_id: String!): Vehicle
+    vehicle(_id: ID!): Vehicle
     updates: [Update]
     update(_id: String!): Update
     parts: [Part]

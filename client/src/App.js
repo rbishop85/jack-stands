@@ -16,6 +16,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Garage from './pages/Garage';
+import Vehicle from './pages/Vehicle'
 
 // Importing Components
 import Header from './components/Header';
@@ -75,10 +76,10 @@ function App() {
               path="/garage"
               element={<Garage />}
             />
-            {/* <Route 
-              path="/profiles/:username"
-              element={<Profile />}
-            /> */}
+            <Route 
+              path="/vehicle/:id"
+              element={<Vehicle />}
+            />
           </Routes>
           <Footer />
 

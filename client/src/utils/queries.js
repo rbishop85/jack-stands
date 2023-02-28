@@ -48,3 +48,21 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_VEHICLE = gql`
+  query vehicle($id: ID!) {
+    vehicle(_id: $id) {
+      _id
+      year
+      make
+      model
+      description
+      addedDate
+      updates {
+        _id
+        title
+        description
+      }
+    }
+  }
+`;

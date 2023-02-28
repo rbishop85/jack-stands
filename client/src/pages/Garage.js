@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
 import { QUERY_ME } from "../utils/queries";
@@ -31,7 +31,10 @@ function Garage() {
               ({ _id, make, model, year, addedDate, updates }) => (
                 <div key={_id}>
                   <div>----------</div>
-                  <div>{year + ' ' + make + ' ' + model}</div>
+                  <Link to={`/vehicle/${_id}`}>
+                    <div>{year + ' ' + make + ' ' + model}</div>
+                  </Link>
+                  
                   <div>Added: {addedDate}</div>
                   <div>Total Updates: {updates.length}</div>
                 </div>
