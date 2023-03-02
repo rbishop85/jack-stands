@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
@@ -40,8 +40,8 @@ const Signup = () => {
 
   return (
     <main className="" id="signup">
-      <div className="">
-        <div className="">
+      {!Auth.loggedIn() ? (
+        <>
           <h4 className="">Sign Up</h4>
           <div className="">
             {data ? (
@@ -91,8 +91,10 @@ const Signup = () => {
               </div>
             )}
           </div>
-        </div>
-      </div>
+        </>
+      ) : (
+        <Navigate to="/me" />
+      )}
     </main>
   );
 };

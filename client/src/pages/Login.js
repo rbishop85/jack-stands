@@ -44,58 +44,52 @@ const Login = (props) => {
     <div id="login">
       {!Auth.loggedIn() ? (
         <>
-          <div>
-            <main className="">
-              <div className="">
-                <div className="">
-                  <h4 className="">Login</h4>
-                  <div className="">
-                    {data ? (
-                      <p>
-                        Success! You may now head{' '}
-                        <Link to="/">back to the homepage.</Link>
-                      </p>
-                    ) : (
-                      <form onSubmit={handleFormSubmit}>
-                        <input
-                          className=""
-                          placeholder="Your username"
-                          name="username"
-                          type="username"
-                          value={formState.username}
-                          onChange={handleChange}
-                        />
-                        <input
-                          className=""
-                          placeholder="******"
-                          name="password"
-                          type="password"
-                          value={formState.password}
-                          onChange={handleChange}
-                        />
-                        <button
-                          className=""
-                          style={{ cursor: 'pointer' }}
-                          type="submit"
-                        >
-                          Submit
-                        </button>
-                      </form>
-                    )}
+          <div className="">
+            <h4 className="">Login</h4>
+            <div className="">
+              {data ? (
+                <p>
+                  Success! You may now head{' '}
+                  <Link to="/me">to the profile.</Link>
+                </p>
+              ) : (
+                <form onSubmit={handleFormSubmit}>
+                  <input
+                    className=""
+                    placeholder="Your username"
+                    name="username"
+                    type="username"
+                    value={formState.username}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className=""
+                    placeholder="******"
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                  />
+                  <button
+                    className=""
+                    style={{ cursor: 'pointer' }}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </form>
+              )}
 
-                    {error && (
-                      <div className="">
-                        {error.message}
-                      </div>
-                    )}
-                  </div>
+              {error && (
+                <div className="">
+                  {error.message}
                 </div>
-              </div>
-            </main>
+              )}
+            </div>
           </div>
         </>
       ) : (
-        <Navigate to="/" />
+        <Navigate to="/me" />
       )}
     </div>
   );

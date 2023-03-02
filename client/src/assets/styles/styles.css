@@ -4,7 +4,8 @@
     --col2: #219ebc;
     --col3: #023047;
     --col4: #ffb703;
-    --col4: #fb8500;
+    --col5: #fb8500;
+    --col6: #ffffff;
 }
 
 body {
@@ -24,33 +25,20 @@ h4 {
     width: 100%;
 }
 
-#home {
-    background-color: var(--col1);
-    padding-top: 40px;
-    text-align: center;
+/* Common styling for all base pages */
+#home, #login, #signup, #profile, #garage, #vehicle {
+    background-color: var(--col6);
     position: absolute;
-    top: 125px;
-    bottom: 65px;
+    top: 68.5px;
+    bottom: 24px;
     overflow: auto;
     width: 100%;
-
 }
 
-#login {
-    background-color: var(--col1);
+.grid {
+    height: 100%;
 }
 
-#signup {
-    background-color: var(--col1);
-}
-
-#profile {
-    background-color: var(--col1);
-}
-
-#garage {
-    background-color: var(--col1);
-}
 
 #footer {
     background-color: var(--col2);
@@ -76,6 +64,11 @@ h4 {
 
 /* Max width for MUI sm Breakpoint */
 @media screen and (max-width: 899px) {
+
+    /* Common styling for all base pages on small screen sizes */
+    #home, #login, #signup, #profile, #garage, #vehicle {
+        top: 56px;
+    }
 
 }
   
