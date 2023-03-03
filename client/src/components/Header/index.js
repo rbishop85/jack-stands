@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Avatar, Button, Tooltip, MenuItem} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
+import profileImage from '../../assets/images/blankProfile.png';
 
 import Auth from '../../utils/auth';
 
@@ -166,26 +167,7 @@ const Header = () => {
                   </Button>
                 </>
               ) : (
-                <>
-                  {/* <Button
-                    onClick={() => navButton("/")}
-                    sx={{ my: 2, color: 'white', display: 'block' }}
-                  >
-                    Home
-                  </Button>
-                  <Button
-                    onClick={() => navButton("/login")}
-                    sx={{ my: 2, color: 'white', display: 'block' }}
-                  >
-                    Login
-                  </Button>
-                  <Button
-                    onClick={() => navButton("/signup")}
-                    sx={{ my: 2, color: 'white', display: 'block' }}
-                  >
-                    Signup
-                  </Button> */}
-                </>
+                <></>
               )}
           </Box>
 
@@ -195,7 +177,7 @@ const Header = () => {
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                    <Avatar alt="Jacob" src={profileImage} />
                   </IconButton>
                 </Tooltip>
                 <Menu
