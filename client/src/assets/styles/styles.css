@@ -6,6 +6,7 @@
     --col4: #ffb703;
     --col5: #fb8500;
     --col6: #ffffff;
+    --error: #EE4B2B;
 }
 
 body {
@@ -35,8 +36,12 @@ h4 {
     width: 100%;
 }
 
-.grid {
+.fullPage {
     height: 100%;
+}
+
+.error {
+    color: var(--error);
 }
 
 

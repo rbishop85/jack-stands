@@ -1,7 +1,20 @@
 import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Link,
+  Grid,
+  Stack,
+  Box,
+  Typography,
+  Container
+} from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 import Auth from '../utils/auth';
 
@@ -44,49 +57,87 @@ const Login = (props) => {
     <div id="login">
       {!Auth.loggedIn() ? (
         <>
-          <div className="">
-            <h4 className="">Login</h4>
-            <div className="">
-              {data ? (
-                <p>
-                  Success! You may now head{' '}
-                  <Link to="/me">to the profile.</Link>
-                </p>
-              ) : (
-                <form onSubmit={handleFormSubmit}>
-                  <input
-                    className=""
-                    placeholder="Your username"
-                    name="username"
-                    type="username"
-                    value={formState.username}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className=""
-                    placeholder="******"
-                    name="password"
-                    type="password"
-                    value={formState.password}
-                    onChange={handleChange}
-                  />
-                  <button
-                    className=""
-                    style={{ cursor: 'pointer' }}
-                    type="submit"
-                  >
-                    Submit
-                  </button>
-                </form>
-              )}
-
-              {error && (
-                <div className="">
+          <Container 
+            component="main" 
+            maxWidth="xs" 
+            className="fullPage"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }} >
+            <CssBaseline />
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Avatar sx={{ m: 1 }}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5">
+                Sign in
+              </Typography>
+              <Box 
+                component="form" 
+                onSubmit={handleFormSubmit}
+                noValidate
+                sx={{ 
+                  mt: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  width: 300
+                }}
+              >
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  name="username"
+                  autoComplete="username"
+                  value={formState.username}
+                  onChange={handleChange}
+                  autoFocus
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                {error && (
+                <div className="error">
                   {error.message}
                 </div>
-              )}
-            </div>
-          </div>
+                )}
+                <Button
+                  type="submit"
+                  // fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Sign In
+                </Button>
+                <Grid container justifyContent="center">
+                  <Grid item>
+                    <Link href="/signup">{"Don't have an account? Sign Up"}</Link>
+                  </Grid>
+                </Grid>
+              </Box>
+            </Box>
+          </Container>
         </>
       ) : (
         <Navigate to="/me" />
