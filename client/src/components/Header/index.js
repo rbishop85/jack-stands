@@ -52,7 +52,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" id="header">
+    <AppBar position="static" id="header" sx={{ height: 68.5 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
 
@@ -78,6 +78,7 @@ const Header = () => {
           </Typography>
 
           {/* Nav Menu in Mobile */}
+          {Auth.loggedIn() ? (
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -107,30 +108,23 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-                {Auth.loggedIn() ? (
-                  <div>
+                {/* {Auth.loggedIn() ? (
+                  <div> */}
                     <MenuItem onClick={() => navButton("/me")}>
                       <Typography textAlign="center">Profile</Typography>
                     </MenuItem>
                     <MenuItem onClick={() => navButton("/garage")}>
                       <Typography textAlign="center">Garage</Typography>
                     </MenuItem>
-                  </div>
+                  {/* </div>
                 ) : (
-                  <div>
-                    <MenuItem onClick={() => navButton("/")}>
-                      <Typography textAlign="center">Home</Typography>
-                    </MenuItem>
-                    <MenuItem onClick={() => navButton("/login")}>
-                      <Typography textAlign="center">Login</Typography>
-                    </MenuItem>
-                    <MenuItem onClick={() => navButton("/signup")}>
-                      <Typography textAlign="center">Signup</Typography>
-                    </MenuItem>
-                  </div>
-                )}
+                  <></>
+                )} */}
             </Menu>
           </Box>
+          ) : (
+            <Box sx={{ flexGrow: 1, width: 8, display: { xs: 'flex', md: 'none' } }} />
+          )}
 
           {/* Icon and Title in Mobile */}
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -173,7 +167,7 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <Button
+                  {/* <Button
                     onClick={() => navButton("/")}
                     sx={{ my: 2, color: 'white', display: 'block' }}
                   >
@@ -190,7 +184,7 @@ const Header = () => {
                     sx={{ my: 2, color: 'white', display: 'block' }}
                   >
                     Signup
-                  </Button>
+                  </Button> */}
                 </>
               )}
           </Box>

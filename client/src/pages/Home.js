@@ -17,9 +17,9 @@ const Home = () => {
       {!Auth.loggedIn() ? (
         <>
           <Grid className='fullPage' container justifyContent="center" alignItems="center">
-            <Stack spacing={2} direction="column" sx={{ margin: 'auto', maxWidth: 150 }}>
-              <Button variant="contained" onClick={() => navButton("/login")}>Login</Button>
-              <Button variant="contained" onClick={() => navButton("/signup")}>Signup</Button>
+            <Stack spacing={2} direction="column" sx={{ margin: 'auto' }}>
+              <Button variant="contained" sx={{width: 200}} onClick={() => navButton("/login")}>Login</Button>
+              <Button variant="contained" sx={{width: 200}} onClick={() => navButton("/signup")}>Signup</Button>
             </Stack>
           </Grid>
         </>

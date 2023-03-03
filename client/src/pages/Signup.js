@@ -1,8 +1,21 @@
 import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Link,
+  Grid,
+  Box,
+  Typography,
+  Container
+} from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 import Auth from '../utils/auth';
 
@@ -42,14 +55,101 @@ const Signup = () => {
     <main className="" id="signup">
       {!Auth.loggedIn() ? (
         <>
+          <Container 
+            component="main" 
+            maxWidth="xs" 
+            className="fullPage"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }} >
+            <CssBaseline />
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Avatar sx={{ m: 1 }}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5">
+                Sign Up
+              </Typography>
+              <Box 
+                component="form" 
+                onSubmit={handleFormSubmit}
+                noValidate
+                sx={{ 
+                  mt: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  width: 300
+                }}
+              >
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  name="username"
+                  autoComplete="username"
+                  value={formState.username}
+                  onChange={handleChange}
+                  autoFocus
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email"
+                  name="email"
+                  autoComplete="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                {error && (
+                <div className="error">
+                  {error.message}
+                </div>
+                )}
+                <Button
+                  type="submit"
+                  // fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Sign Up
+                </Button>
+                <Grid container justifyContent="center">
+                  <Grid item>
+                    <Link href="/login">{"Already have an account? Sign In"}</Link>
+                  </Grid>
+                </Grid>
+              </Box>
+            </Box>
+          </Container>
           <h4 className="">Sign Up</h4>
           <div className="">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
+
               <form onSubmit={handleFormSubmit}>
                 <input
                   className=""
@@ -83,7 +183,6 @@ const Signup = () => {
                   Submit
                 </button>
               </form>
-            )}
 
             {error && (
               <div className="">
