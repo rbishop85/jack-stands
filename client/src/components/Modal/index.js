@@ -1,10 +1,9 @@
 import { Dialog } from "@mui/material"
-import NewVehicle from "../NewVehicle"
 import { useState } from "react";
 import { Button } from "@mui/material";
 
 
-const Modal = () => {
+const Modal = ({ label, Content }) => {
   
     const [open, setOpen] = useState(false)
   
@@ -20,9 +19,9 @@ const Modal = () => {
 
     return (
         <div className="modalTest">
-            <Button variant="contained" onClick={handleOpen}>Add New Vehicle</Button>
+            <Button variant="contained" onClick={handleOpen}>{label}</Button>
             <Dialog open={open} onClose={handleClose}>
-                <NewVehicle handleClose={handleClose}/>
+                <Content handleClose={handleClose}/>
             </Dialog>
         </div>
 

@@ -7,7 +7,8 @@ import { QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
-import Modal from "../components/Modal"
+import Modal from "../components/Modal";
+import NewVehicle from "../components/NewVehicle"
 
 function Garage() {
 
@@ -28,7 +29,7 @@ function Garage() {
           <div>
             Viewing {user.username}'s garage.
           </div>
-          <Modal />
+          <Modal label={"Add Vehicle"} Content={NewVehicle}/>
           <div>
             <br></br>
             <div>Garage:</div>
