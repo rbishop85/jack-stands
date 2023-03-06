@@ -2,11 +2,16 @@ import React from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
+
 import { QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
+import Modal from "../components/Modal"
+
 function Garage() {
+
+
   const { loading, data } = useQuery(QUERY_ME);
   const user = data?.me || [];
 
@@ -23,7 +28,7 @@ function Garage() {
           <div>
             Viewing {user.username}'s garage.
           </div>
-
+          <Modal />
           <div>
             <br></br>
             <div>Garage:</div>
@@ -41,7 +46,6 @@ function Garage() {
               )
             )}
           </div>
-
         </>
       ) : (
           <Navigate to="/" />

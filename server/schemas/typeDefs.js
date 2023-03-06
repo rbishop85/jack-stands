@@ -16,7 +16,7 @@ const typeDefs = gql`
     _id: ID
     make: String
     model: String
-    year: Int
+    year: String
     addedDate: String
     soldDate: String
     ownerId: String
@@ -70,8 +70,7 @@ const typeDefs = gql`
     addVehicle(
       make: String!
       model: String!
-      year: Int!
-      addedDate: String
+      year: String!
       description: String
     ): Vehicle
     editVehicle(

@@ -77,9 +77,9 @@ const resolvers = {
     },
 
     // addVehicle - (Create new vehicle)
-    addVehicle: async (parent, { make, model, year, addedDate, description }, context) => {
+    addVehicle: async (parent, { make, model, year, description }, context) => {
 
-      const vehicle = await Vehicle.create({ make, model, year, addedDate, ownerId: context.user.username, description });
+      const vehicle = await Vehicle.create({ make, model, year, ownerId: context.user.username, description });
 
       await User.findOneAndUpdate(
         { _id: context.user._id },
