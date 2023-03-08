@@ -31,3 +31,11 @@ export const ADD_VEHICLE = gql`
     }
   }
 `;
+
+export const DELETE_VEHICLE = gql`
+  mutation deleteVehicle($vehicleId: ID!) {
+    deleteVehicle(vehicleId: $vehicleId) {
+      _id
+    }
+  }
+`;
