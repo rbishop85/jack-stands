@@ -109,18 +109,18 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-                {/* {Auth.loggedIn() ? (
-                  <div> */}
-                    <MenuItem onClick={() => navButton("/me")}>
-                      <Typography textAlign="center">Profile</Typography>
-                    </MenuItem>
-                    <MenuItem onClick={() => navButton("/garage")}>
-                      <Typography textAlign="center">Garage</Typography>
-                    </MenuItem>
-                  {/* </div>
-                ) : (
-                  <></>
-                )} */}
+              <MenuItem onClick={() => navButton("/me")}>
+                <Typography textAlign="center">Profile</Typography>
+              </MenuItem>
+              <MenuItem onClick={() => navButton("/garage")}>
+                <Typography textAlign="center">Garage</Typography>
+              </MenuItem>
+              <MenuItem onClick={() => navButton("")}>
+                <Typography textAlign="center">Parts Shelf</Typography>
+              </MenuItem>
+              <MenuItem onClick={() => navButton("")}>
+                <Typography textAlign="center">Ideas</Typography>
+              </MenuItem>
             </Menu>
           </Box>
           ) : (
@@ -164,6 +164,18 @@ const Header = () => {
                     sx={{ my: 2, color: 'white', display: 'block' }}
                   >
                     Garage
+                  </Button>
+                  <Button
+                    onClick={() => navButton("")}
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                    Parts Shelf
+                  </Button>
+                  <Button
+                    onClick={() => navButton("")}
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                    Ideas
                   </Button>
                 </>
               ) : (
