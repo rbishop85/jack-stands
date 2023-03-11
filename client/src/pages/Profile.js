@@ -1,11 +1,15 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
+import Modal from "../components/Modal";
+import NewUpdate from "../components/NewUpdate"
+import { Button } from "@mui/material";
 
 function Profile() {
+  const nav = useNavigate();
   const { loading, data } = useQuery(QUERY_ME);
   const user = data?.me || [];
 
@@ -14,6 +18,10 @@ function Profile() {
   }
 
   console.log(user);
+  const navTo = (location) => {
+    console.log(location);
+    nav(`${location}`);
+  };
 
   return (
     <div id="profile">
@@ -25,7 +33,9 @@ function Profile() {
           <div>
             Email: {user.email}
           </div>
-
+          <div>
+            <Modal label={"Add Update"} Content={NewUpdate} data={user.vehicles} />
+          </div>
           <div>
             <br></br>
             <div>Recent Updates:</div>
@@ -37,6 +47,7 @@ function Profile() {
                   <div>Description: {description}</div>
                   <div>Vehicle: {vehicle.model}</div>
                   <div>Posted: {postedDate}</div>
+                  <Button onClick={() => navTo(`/update/${_id}`)}>View</Button>
                 </div>
               )
             )}

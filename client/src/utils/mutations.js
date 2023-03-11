@@ -39,3 +39,11 @@ export const DELETE_VEHICLE = gql`
     }
   }
 `;
+
+export const ADD_UPDATE = gql`
+  mutation addUpdate($title: String!, $description: String!, $vehicle: String!) {
+    addUpdate(title: $title, description: $description, vehicle: $vehicle) {
+      _id
+    }
+  }
+`;

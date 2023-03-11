@@ -16,7 +16,8 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Garage from './pages/Garage';
-import Vehicle from './pages/Vehicle'
+import Vehicle from './pages/Vehicle';
+import Update from './pages/Update';
 
 // Importing Components
 import Header from './components/Header';
@@ -79,6 +80,10 @@ function App() {
             <Route 
               path="/vehicle/:id"
               element={<Vehicle />}
+            />
+            <Route 
+              path="/update/:id"
+              element={<Update />}
             />
           </Routes>
           <Footer />

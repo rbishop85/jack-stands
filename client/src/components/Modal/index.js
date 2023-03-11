@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@mui/material";
 
 
-const Modal = ({ label, Content }) => {
+const Modal = ({ label, Content, data }) => {
   
     const [open, setOpen] = useState(false)
   
@@ -21,7 +21,7 @@ const Modal = ({ label, Content }) => {
         <div className="modalTest">
             <Button variant="contained" onClick={handleOpen}>{label}</Button>
             <Dialog open={open} onClose={handleClose}>
-                <Content handleClose={handleClose}/>
+                <Content handleClose={handleClose} data={data}/>
             </Dialog>
         </div>
 

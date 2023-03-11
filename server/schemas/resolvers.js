@@ -39,7 +39,8 @@ const resolvers = {
     },
     // Find single update by ID
     update: async (parent, { _id }) => {
-      return Update.findOne({ _id });
+      return Update.findOne({ _id })
+      .populate({path: 'vehicle'});
     },
     // Find all parts
     parts: async () => {

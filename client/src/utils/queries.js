@@ -67,3 +67,20 @@ export const QUERY_VEHICLE = gql`
     }
   }
 `;
+
+export const QUERY_UPDATE = gql`
+  query update($id: String!) {
+    update(_id: $id) {
+      _id
+      title
+      description
+      vehicle {
+        _id
+        year
+        make
+        model
+      }
+      postedDate
+    }
+  }
+`;
