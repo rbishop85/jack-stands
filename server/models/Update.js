@@ -30,8 +30,9 @@ const updateSchema = new Schema({
     get: (timestamp) => dateFormat(timestamp),
   },
 },
-{ timestamps: true }
-);
+{ 
+  timestamps: true 
+});
 
 const Update = model("Update", updateSchema);
 

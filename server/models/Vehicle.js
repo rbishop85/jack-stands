@@ -43,6 +43,9 @@ const vehicleSchema = new Schema({
       ref: 'Update'
     }
   ],
+},
+{ 
+  timestamps: true 
 });
 
 const Vehicle = model("Vehicle", vehicleSchema);

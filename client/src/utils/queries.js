@@ -34,6 +34,8 @@ export const QUERY_ME = gql`
         description
         vehicle {
           _id
+          year
+          make
           model
         }
         postedDate
@@ -61,7 +63,13 @@ export const QUERY_VEHICLE = gql`
       updates {
         _id
         title
-        description
+        description 
+        vehicle {
+          _id
+          year
+          make
+          model
+        }
         postedDate
       }
     }

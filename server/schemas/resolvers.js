@@ -25,7 +25,7 @@ const resolvers = {
     // Find all vehicles
     vehicles: async () => {
       return Vehicle.find()
-      .populate({path: 'updates', options: { sort: { postedDate: -1 }}});
+      .populate({path: 'updates', populate: {path: 'vehicle'}, options: { sort: { postedDate: -1 }}});
     },
     // Find single vehicle by ID
     vehicle: async (parent, { _id }) => {

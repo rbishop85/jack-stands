@@ -5,8 +5,8 @@ import { QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 import Modal from "../components/Modal";
-import NewUpdate from "../components/NewUpdate"
-import { Button } from "@mui/material";
+import NewUpdate from "../components/NewUpdate";
+import UpdateCard from "../components/UpdateCard";
 
 function Profile() {
   const nav = useNavigate();
@@ -40,15 +40,14 @@ function Profile() {
             <br></br>
             <div>Recent Updates:</div>
             {user.updates.map(
-              ({ _id, title, description, vehicle, postedDate }) => (
-                <div key={_id}>
-                  <div>----------</div>
-                  <div>Title: {title}</div>
-                  <div>Description: {description}</div>
-                  <div>Vehicle: {vehicle.model}</div>
-                  <div>Posted: {postedDate}</div>
-                  <Button onClick={() => navTo(`/update/${_id}`)}>View</Button>
-                </div>
+              ({ _id, title, vehicle, postedDate }) => (
+                <UpdateCard
+                  key={_id}
+                  _id={_id}
+                  title={title}
+                  vehicle={vehicle}
+                  postedDate={postedDate}
+                />
               )
             )}
           </div>

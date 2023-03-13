@@ -29,6 +29,9 @@ const partSchema = new Schema({
     type: String,
     required: true,
   },
+},
+{ 
+  timestamps: true 
 });
 
 const Part = model("Part", partSchema);

@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/client";
 import { Typography } from '@mui/material'
 
 import { QUERY_VEHICLE } from "../utils/queries";
+import UpdateCard from "../components/UpdateCard";
 
 import Auth from "../utils/auth";
 
@@ -37,13 +38,14 @@ function Vehicle() {
         <br />
         <Typography>Recent Updates:</Typography>
         {vehicle.updates.map(
-          ({ _id, title, description, postedDate }) => (
-            <div key={_id}>
-              <Typography>----------</Typography>
-              <Typography>Title: {title}</Typography>
-              <Typography>Description: {description}</Typography>
-              <Typography>Posted: {postedDate}</Typography>
-            </div>
+          ({ _id, title, vehicle, postedDate }) => (
+            <UpdateCard
+              key={_id}
+              _id={_id}
+              title={title}
+              vehicle={vehicle}
+              postedDate={postedDate}
+            />
           )
         )}
       </div>
