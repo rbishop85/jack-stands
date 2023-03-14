@@ -33,6 +33,8 @@ const typeDefs = gql`
     vehicle: Vehicle
     ownerId: String
     postedDate: String
+    createdAt: String
+    updatedAt: String
   }
 
   type Part {

@@ -39,6 +39,8 @@ export const QUERY_ME = gql`
           model
         }
         postedDate
+        createdAt
+        updatedAt
       }
       partsShelf {
         _id

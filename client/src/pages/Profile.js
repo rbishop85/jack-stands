@@ -18,6 +18,7 @@ function Profile() {
   }
 
   console.log(user);
+  console.log(user.updates[0].createdAt);
   const navTo = (location) => {
     console.log(location);
     nav(`${location}`);

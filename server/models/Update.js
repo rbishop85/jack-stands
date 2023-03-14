@@ -31,7 +31,7 @@ const updateSchema = new Schema({
   },
 },
 { 
-  timestamps: true 
+  timestamps: true
 });
 
 const Update = model("Update", updateSchema);
