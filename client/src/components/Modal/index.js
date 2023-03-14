@@ -12,7 +12,7 @@ const Modal = ({ label, Content, data }) => {
     }
   
     const handleClose = (event, reason) => {
-        if (reason && reason == "backdropClick") 
+        if (reason && reason === "backdropClick") 
             return;
         setOpen(false)
     }

@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 
@@ -8,7 +7,6 @@ import NewUpdate from "../components/NewUpdate";
 import UpdateCard from "../components/UpdateCard";
 
 function Profile() {
-  const nav = useNavigate();
   const { loading, data } = useQuery(QUERY_ME);
   const user = data?.me || [];
 
@@ -17,11 +15,6 @@ function Profile() {
   }
 
   console.log(user);
-  console.log(user.updates[0].createdAt);
-  const navTo = (location) => {
-    console.log(location);
-    nav(`${location}`);
-  };
 
   return (
     <div id="profile">
