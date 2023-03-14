@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// Blocking out boiler plate styling to develop my own
-// import './index.css';
-
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

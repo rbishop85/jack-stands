@@ -33,14 +33,6 @@ const Header = () => {
     handleCloseNavMenu();
   }
 
-  const titleNav = () => {
-    Auth.loggedIn() ? (
-      nav("/me")
-    ) : (
-      nav("/")
-    )
-  }
-
   // User links
   // #### Page not setup yet ####
   const userEdit = () => {
@@ -64,7 +56,7 @@ const Header = () => {
             noWrap
             component="a"
             href=""
-            onClick={titleNav}
+            onClick={() => navButton("/")}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -109,7 +101,7 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              <MenuItem onClick={() => navButton("/me")}>
+              <MenuItem onClick={() => navButton("/")}>
                 <Typography textAlign="center">Profile</Typography>
               </MenuItem>
               <MenuItem onClick={() => navButton("/garage")}>
@@ -134,7 +126,7 @@ const Header = () => {
             noWrap
             component="a"
             href=""
-            onClick={titleNav}
+            onClick={() => navButton("/")}
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -154,7 +146,7 @@ const Header = () => {
               {Auth.loggedIn() ? (
                 <>
                   <Button
-                    onClick={() => navButton("/me")}
+                    onClick={() => navButton("/")}
                     sx={{ my: 2, color: 'white', display: 'block' }}
                   >
                     Profile

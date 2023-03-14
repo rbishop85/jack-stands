@@ -6,9 +6,9 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-
+import Auth from "./utils/auth";
 
 // Importing Pages
 import Home from './pages/Home';
@@ -57,34 +57,49 @@ function App() {
         <Router>
           <Header />
           <Routes>
-            <Route 
-              path="/"
-              element={<Home />}
-            />
-            <Route 
-              path="/login"
-              element={<Login />}
-            />
-            <Route 
-              path="/signup"
-              element={<Signup />}
-            />
-            <Route 
-              path="/me"
-              element={<Profile />}
-            />
-            <Route 
-              path="/garage"
-              element={<Garage />}
-            />
-            <Route 
-              path="/vehicle/:id"
-              element={<Vehicle />}
-            />
-            <Route 
-              path="/update/:id"
-              element={<Update />}
-            />
+            {!Auth.loggedIn() ? (
+              <>
+                <Route 
+                  path="/"
+                  element={<Home />}
+                />
+                <Route 
+                  path="/login"
+                  element={<Login />}
+                />
+                <Route 
+                  path="/signup"
+                  element={<Signup />}
+                />
+                <Route
+                  path="*"
+                  element={<Navigate to="/" />}
+                />
+              </>
+            ) : (
+              <>
+                <Route 
+                  path="/"
+                  element={<Profile />}
+                />
+                <Route 
+                  path="/garage"
+                  element={<Garage />}
+                />
+                <Route 
+                  path="/vehicle/:id"
+                  element={<Vehicle />}
+                />
+                <Route 
+                  path="/update/:id"
+                  element={<Update />}
+                />
+                <Route
+                  path="*"
+                  element={<Navigate to="/" />}
+                />
+              </>
+            )}
           </Routes>
           <Footer />
 

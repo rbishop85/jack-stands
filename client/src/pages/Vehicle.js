@@ -7,8 +7,6 @@ import { Typography } from '@mui/material'
 import { QUERY_VEHICLE } from "../utils/queries";
 import UpdateCard from "../components/UpdateCard";
 
-import Auth from "../utils/auth";
-
 function Vehicle() {
 
   let { id } = useParams();

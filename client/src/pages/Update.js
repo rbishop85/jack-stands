@@ -6,8 +6,6 @@ import { Typography } from '@mui/material'
 
 import { QUERY_UPDATE } from "../utils/queries";
 
-import Auth from "../utils/auth";
-
 function Vehicle() {
 
   let { id } = useParams();
