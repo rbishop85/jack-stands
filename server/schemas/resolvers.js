@@ -132,7 +132,6 @@ const resolvers = {
       );
 
       await Vehicle.findOneAndUpdate(
-        // { _id: vehicleId },
         { _id: vehicle },
         { $addToSet: { updates: update._id } }
       );
@@ -154,7 +153,7 @@ const resolvers = {
     },
 
     // deleteUpdate - (Delete an update and remove it from the owner's list of updates)
-    deleteUpdate: async (parent, { updateId }, context) => {
+    deleteUpdate: async (parent, { updateId, vehicle }, context) => {
       if (context.user) {
         const update = await Update.findOneAndDelete({
           _id: updateId,
@@ -165,6 +164,11 @@ const resolvers = {
           { _id: context.user._id },
           { $pull: { updates: updateId } }
         );
+
+        await Vehicle.findOneAndUpdate(
+          { _id: vehicle },
+          { $pull: { updates: updateId } }
+        );        
 
         return update;
       }

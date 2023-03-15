@@ -47,3 +47,11 @@ export const ADD_UPDATE = gql`
     }
   }
 `;
+
+export const DELETE_UPDATE = gql`
+  mutation deleteUpdate($updateId: ID!, $vehicle: String) {
+    deleteUpdate(updateId: $updateId, vehicle: $vehicle) {
+      _id
+    }
+  }
+`;

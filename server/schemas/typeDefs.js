@@ -98,7 +98,10 @@ const typeDefs = gql`
       photos: [String]
       description: String
     ): Update
-    deleteUpdate(updateId: ID!): Update
+    deleteUpdate(
+      updateId: ID!
+      vehicle: String
+      ): Update
     
     addPart(
       name: String!
