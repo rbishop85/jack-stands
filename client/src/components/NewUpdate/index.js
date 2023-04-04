@@ -25,6 +25,8 @@ const NewUpdate = (props) => {
       ...formState,
       [name]: value,
     });
+
+    console.log(formState);
   };
 
   // Submit form
@@ -79,7 +81,7 @@ const NewUpdate = (props) => {
         value={formState.description}
         onChange={handleChange}
       />
-      <FormControl required sx={{ m: 2, minWidth: 100 }}>
+      <FormControl sx={{ m: 2, minWidth: 100 }}>
         <InputLabel id="vehicle-select-label">Vehicle</InputLabel>
         <Select
             labelId="vehicle-select-label"
@@ -90,11 +92,12 @@ const NewUpdate = (props) => {
             value={formState.vehicle}
             onChange={handleChange}
         >
-            {props.data.map(
-                ({ _id, year, make, model }) => (
-                    <MenuItem key={_id} value={_id} >{year + " " + make + " " + model}</MenuItem>
-                )
-            )}
+          <MenuItem value="">None</MenuItem>
+          {props.data.map(
+              ({ _id, year, make, model }) => (
+                  <MenuItem key={_id} value={_id} >{year + " " + make + " " + model}</MenuItem>
+              )
+          )}
             
         </Select>
       </FormControl>

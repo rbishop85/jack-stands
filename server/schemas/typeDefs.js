@@ -90,7 +90,7 @@ const typeDefs = gql`
       title: String!
       description: String!
       photos: [String]
-      vehicle: String!
+      vehicle: String
     ): Update
     editUpdate(
       _id: ID!
