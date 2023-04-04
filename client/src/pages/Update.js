@@ -30,7 +30,7 @@ function Vehicle() {
       <div>
         <Typography>Title: {update.title}</Typography>
         <Typography>Description: {update.description}</Typography>
-        <Typography>Vehicle: {update.vehicle.year + " " + update.vehicle.make + " " + update.vehicle.model}</Typography>
+        <Typography>Vehicle: { update.vehicle ? ( update.vehicle.year + " " + update.vehicle.make + " " + update.vehicle.model ) : "  Not Available" }</Typography>
       </div>
     </div>
   );
