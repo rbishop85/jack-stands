@@ -40,9 +40,16 @@ const userSchema = new Schema({
       ref: 'Part'
     }
   ],
-},
-{ 
-  timestamps: true 
+  postedDate: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
+  updatedDate: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
 });
 
 userSchema.pre('save', async function (next) {

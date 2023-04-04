@@ -29,9 +29,11 @@ const updateSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-},
-{ 
-  timestamps: true
+  updatedDate: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
 });
 
 const Update = model("Update", updateSchema);

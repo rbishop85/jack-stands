@@ -20,7 +20,12 @@ const partSchema = new Schema({
       type: String
     }
   ],
-  addedDate: {
+  postedDate: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
+  updatedDate: {
     type: Date,
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
@@ -29,9 +34,6 @@ const partSchema = new Schema({
     type: String,
     required: true,
   },
-},
-{ 
-  timestamps: true 
 });
 
 const Part = model("Part", partSchema);

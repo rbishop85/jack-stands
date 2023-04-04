@@ -16,7 +16,12 @@ const vehicleSchema = new Schema({
   // color: {
   //   type: String,
   // },
-  addedDate: {
+  postedDate: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
+  updatedDate: {
     type: Date,
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
@@ -43,9 +48,6 @@ const vehicleSchema = new Schema({
       ref: 'Update'
     }
   ],
-},
-{ 
-  timestamps: true 
 });
 
 const Vehicle = model("Vehicle", vehicleSchema);
